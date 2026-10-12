@@ -1,0 +1,14 @@
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:#0b1020;color:#e8ecf5}
+.wrap{max-width:900px;margin:0 auto;padding:12px}header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+h1{font-size:1.4rem;margin:4px 0}.bar{display:flex;flex-wrap:wrap;gap:6px 14px;background:#161d33;padding:8px;border-radius:8px}
+.bad{color:#ff6b6b}.score{margin:8px 0}.score small{display:block;opacity:.7}
+.main{display:flex;gap:12px;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;flex:1 1 300px;max-width:420px;aspect-ratio:1}
+.tile{background:#2a2f3f;border:1px solid #3c4458;border-radius:6px;font-size:1.5rem;color:inherit;cursor:pointer;padding:0}
+.tile.can{outline:2px dashed #6ea8ff}.tile.built{background:#3a4566}
+.actions{flex:1 1 240px;display:flex;flex-direction:column;gap:6px}
+button{background:#232b45;color:#e8ecf5;border:1px solid #3c4458;border-radius:6px;padding:8px;text-align:left;cursor:pointer}
+button small{display:block;opacity:.75;font-size:.75rem}button:disabled{opacity:.4;cursor:default}
+button.sel{border-color:#6ea8ff;background:#2d3e6b}button.primary{background:#3b6fe0;text-align:center;font-weight:bold}
+.hint{margin:0;color:#9cc0ff;font-size:.85rem}.log{margin-top:12px;background:#111727;padding:8px;border-radius:8px;max-height:200px;overflow:auto;font-size:.85rem}
+.link{margin-top:8px;background:none;border:none;text-decoration:underline;opacity:.7}
+.result{text-align:center}.result table{margin:16px auto;border-collapse:collapse}.result td,.result th{padding:6px 14px;border-bottom:1px solid #333}
