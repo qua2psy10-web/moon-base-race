@@ -12,3 +12,4 @@ button.sel{border-color:#6ea8ff;background:#2d3e6b}button.primary{background:#3b
 .hint{margin:0;color:#9cc0ff;font-size:.85rem}.log{margin-top:12px;background:#111727;padding:8px;border-radius:8px;max-height:200px;overflow:auto;font-size:.85rem}
 .link{margin-top:8px;background:none;border:none;text-decoration:underline;opacity:.7}
 .result{text-align:center}.result table{margin:16px auto;border-collapse:collapse}.result td,.result th{padding:6px 14px;border-bottom:1px solid #333}
+.timer.bad{font-weight:bold}

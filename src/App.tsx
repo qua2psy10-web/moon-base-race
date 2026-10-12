@@ -2,12 +2,16 @@ import { useEffect, useState } from 'react';
 import type { FacilityType, GameState } from './game/types';
 import * as E from './game/engine';
 import * as R from './game/rules';
+import { useTurnTimer } from './game/useTurnTimer';
+import { isWarning } from './game/timer';
 
 export default function App() {
   const [s, setS] = useState<GameState>(() => E.load() ?? E.newGame());
   const [sel, setSel] = useState<FacilityType | null>(null);
   useEffect(() => E.save(s), [s]);
   const restart = () => { E.clearSave(); setS(E.newGame()); setSel(null); };
+  const [loadId] = useState(() => Date.now());
+  const left = useTurnTimer(`${loadId}-${s.turn}-${s.finished}`, !s.finished, () => { setSel(null); setS((cur) => cur.finished ? cur : E.endTurn(cur)); });
   const p = s.player, ps = E.score(p), rs = E.score(s.rival);
 
   if (s.finished) {
@@ -31,7 +35,7 @@ export default function App() {
     <div className="wrap">
       <header>
         <h1>🌕 月面基地レース</h1>
-        <div>{s.turn} / {R.MAX_TURNS}か月目・残り行動 {s.actionsLeft}</div>
+        <div>{s.turn} / {R.MAX_TURNS}か月目・残り行動 {s.actionsLeft}・<span className={'timer' + (isWarning(left) ? ' bad' : '')}>⏱ 残り{left}秒</span></div>
       </header>
       <div className="bar">
         <span>💰資金 {p.res.money}</span><span>🧱資材 {p.res.materials}</span><span>👩‍🚀人材 {p.res.staff}</span>
